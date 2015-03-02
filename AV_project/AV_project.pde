@@ -7,51 +7,55 @@ void setup()
   rectMode(CENTER);
   imageMode(CENTER);
   noStroke();
-  if(frame  !=null)
+  if (frame  !=null)
   {
-  frame.setResizable(true);
+    frame.setResizable(true);
   }
-  
-  character1 = new character("Elsa");
- ;
 
+  character1 = new character("Elsa");
+  ;
 }
 
 void draw()
 {
   restrictwindow();
-  
+
   if (shake)
   {
     translate(random(5), random(5));
   }
-  
-    pushMatrix();
+
+  pushMatrix();
 
   background(100);
-  
- // image(elsa, width*0.8, height - elsa.height/2);
- character1.update();
- 
+
+  // image(elsa, width*0.8, height - elsa.height/2);
+  character1.update();
+
   popMatrix();
-  
+
+  textbox();
+}
+
+void textbox()
+{
   fill(255, 100, 200, 150);
   rect(width*0.5, height*0.85, width*0.9, height*0.2);
-  
+
   fill(250);
   text("text will go here", width*0.1, height*0.8);
 }
 
 void restrictwindow()
 {
-if (width < 400)
+  if (width < 400)
   {
-  size(400,height,P2D);
+    size(400, height, P2D);
   }
-  
+
   if (height < 400)
   {
-  size(width,400,P2D);
+    size(width, 400, P2D);
   }
 }
 
@@ -64,17 +68,16 @@ class character
     name = n;
     sprite1 = loadImage(name+".png");
     sprite1.resize(0, int(height*0.8));
-
   }
 
   void update()
   {
-      image(sprite1, width*0.8, height - sprite1.height/2);
-
+    image(sprite1, width*0.8, height - sprite1.height/2);
   }
 }
 
 void keyPressed()
 {
-shake = !shake;
+  shake = !shake;
 }
+
