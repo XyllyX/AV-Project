@@ -1,6 +1,9 @@
 boolean shake;
 
 character character1;
+
+String text = "text goes here";
+
 void setup()
 {
   size(900, 600, P2D);
@@ -43,7 +46,7 @@ void textbox()
   rect(width*0.5, height*0.85, width*0.9, height*0.2);
 
   fill(250);
-  text("text will go here", width*0.1, height*0.8);
+  text(text, width*0.1, height*0.8);
 }
 
 void restrictwindow()
